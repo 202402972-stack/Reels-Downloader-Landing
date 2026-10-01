@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --ease: cubic-bezier(0.22, 1, 0.36, 1); }
+html { scroll-behavior: smooth; }
+[id] { scroll-margin-top: 96px; }
+body { background: #F3EEE4; color: #17140F; font-family: var(--font-sans), system-ui, sans-serif; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+::selection { background: #B5361E; color: #F3EEE4; }
+:focus-visible { outline: 2px solid #B5361E; outline-offset: 3px; }
+p { color: #5B554B; font-size: 1.0625rem; line-height: 1.65; text-wrap: pretty; }
+
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+@media (min-width: 768px) { .wrap { padding: 0 3rem; } }
+
+/* Headings: Bodoni Moda, one color, no italics */
+.h-hero, .h-page, .h-section, .h-sub, .h-side, .numeral, .value, .statement { font-family: var(--font-display), Georgia, serif; font-weight: 400; color: #17140F; text-wrap: balance; }
+.h-hero { font-size: clamp(2.5rem, 5.6vw, 5rem); line-height: 1; letter-spacing: -0.02em; }
+.h-page { font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.04; letter-spacing: -0.02em; }
+.h-section { font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.08; letter-spacing: -0.01em; }
+.h-sub { font-size: 1.5rem; line-height: 1.2; font-weight: 500; }
+.h-side { font-size: 2rem; line-height: 1.15; }
+.numeral { color: #B5361E; font-size: 2.5rem; line-height: 1; }
+.value { font-size: 1.5rem; line-height: 1.2; }
+.statement { font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.15; max-width: 40rem; }
+.wordmark { font-family: var(--font-display), Georgia, serif; font-size: 1.5rem; line-height: 1; letter-spacing: -0.01em; }
+.lead { font-size: 1.25rem; line-height: 1.6; }
+.label { font-size: .75rem; font-weight: 500; text-transform: uppercase; letter-spacing: .16em; color: #5B554B; }
+.row { border-top: 1px solid #D6CDBB; padding: 1.25rem 0; }
+.row-title { font-weight: 500; color: #17140F; margin-bottom: .25rem; }
+
+/* Dark footer and red band: put class on-dark on the <footer> / <section>. It overrides heading and paragraph colors. */
+.on-dark { color: #F3EEE4; }
+.on-dark :is(h1, h2, h3, p, li) { color: inherit; }
+.on-dark .label { color: inherit; opacity: .6; }
+.on-dark .row { border-top-color: rgba(243, 238, 228, .3); }
+
+/* Button: sharp rectangle; red fill slides in from the left on hover */
+.btn { position: relative; display: inline-flex; align-items: center; gap: .75rem; padding: 1rem 1.75rem; border: 1px solid #17140F; background: #17140F; color: #F3EEE4; font-size: .8125rem; font-weight: 500; text-transform: uppercase; letter-spacing: .14em; overflow: hidden; isolation: isolate; transition: border-color 350ms var(--ease); }
+.btn::before { content: ""; position: absolute; inset: 0; background: #B5361E; transform: scaleX(0); transform-origin: left; transition: transform 350ms var(--ease); z-index: -1; }
+.btn:hover { border-color: #B5361E; }
+.btn:hover::before { transform: scaleX(1); }
+.btn:active::before { background: #8F2814; }
+.btn svg { transition: transform 350ms var(--ease); }
+.btn:hover svg { transform: translateX(4px); }
+.btn-sm { padding: .75rem 1.25rem; }
+/* On the red band the button is paper and fills with ink */
+.btn-inverse { background: #F3EEE4; color: #17140F; border-color: #F3EEE4; }
+.btn-inverse::before { background: #17140F; }
+.btn-inverse:hover { border-color: #17140F; color: #F3EEE4; }
+
+/* Text link with animated underline */
+.link { background-image: linear-gradient(currentColor, currentColor); background-size: 0 1px; background-position: 0 100%; background-repeat: no-repeat; transition: background-size 300ms var(--ease); }
+.link:hover, .link-on { background-size: 100% 1px; }
+
+/* Scroll reveal */
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity 700ms var(--ease), transform 700ms var(--ease); }
+.reveal.is-in { opacity: 1; transform: none; }
+
+/* Hero headline: each line slides up from behind a mask */
+.line { display: block; overflow: hidden; padding-bottom: .12em; }
+.line > span { display: block; transform: translateY(105%); animation: lineUp 900ms var(--ease) forwards; }
+@keyframes lineUp { to { transform: none; } }
+
+/* Chat mock: plays once */
+.chat-in { opacity: 0; transform: translateY(12px); animation: chatIn 600ms var(--ease) forwards; }
+@keyframes chatIn { to { opacity: 1; transform: none; } }
+.bar-fill { transform: scaleX(0); transform-origin: left; animation: barFill 1600ms linear forwards; }
+@keyframes barFill { to { transform: scaleX(1); } }
+.pick { animation: pick 300ms var(--ease) forwards; }
+@keyframes pick { to { background: #17140F; color: #F3EEE4; border-color: #17140F; } }
+
+/* FAQ: native <details> */
+details > summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 1.5rem; padding: 1.5rem 0; font-size: 1.125rem; font-weight: 500; color: #17140F; }
+details > summary::-webkit-details-marker { display: none; }
+details > summary::after { content: "+"; font-family: var(--font-display), Georgia, serif; font-size: 1.5rem; line-height: 1; color: #B5361E; }
+details[open] > summary::after { content: "\2212"; }
+details > p { padding: 0 0 1.5rem; max-width: 40rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal, .chat-in { opacity: 1; transform: none; animation: none; transition: none; }
+  .line > span { transform: none; animation: none; }
+  .bar-fill { transform: none; animation: none; }
+  .pick { animation: none; }
+  .btn::before, .btn svg, .link { transition: none; }
+}
