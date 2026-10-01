@@ -1,7 +1,12 @@
+import type { Metadata } from "next";
 import Button from "@/components/Button";
 import ChatMock from "@/components/ChatMock";
 import CtaRow from "@/components/CtaRow";
 import Reveal from "@/components/Reveal";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 const steps = [
   ["01", "Send a link", "Copy a public TikTok or Instagram link and send it to the bot. Several links in one message start a batch."],

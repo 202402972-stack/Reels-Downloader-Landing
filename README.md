@@ -16,6 +16,7 @@ Landing page for the **Reelkeep** Telegram bot, which downloads public TikTok an
 - `/` — landing page
 - `/features` — product features and limits
 - `/privacy` — privacy policy and FAQ
+- `/sitemap.xml` and `/robots.txt` — generated from `app/sitemap.ts` and `app/robots.ts`
 
 ## Local development
 
@@ -44,6 +45,7 @@ npm start -- -H 0.0.0.0 -p 3000
 - `app/` — Next.js App Router pages and global styles
 - `components/` — shared header, footer, buttons and UI components
 - `lib/site.ts` — bot and developer site configuration
+- `public/og.png` — 1200×630 social preview image
 
 ## Bot
 

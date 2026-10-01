@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
 import CtaRow from "@/components/CtaRow";
 import Reveal from "@/components/Reveal";
+import { OG_IMAGES } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy and FAQ — Reelkeep",
   description: "What Reelkeep does with your links and your data, and answers to common questions.",
+  openGraph: {
+    title: "Privacy and FAQ — Reelkeep",
+    description: "What Reelkeep does with your links and your data, and answers to common questions.",
+    images: OG_IMAGES,
+  },
+  alternates: { canonical: "/privacy" },
 };
 const privacy = ["Only public links are processed. Private accounts are never bypassed.", "The bot never asks you for passwords or sign-in details.", "An optional Instagram session, configured by the bot owner, can be used for Stories. It is loaded at runtime and never shown to users.", "Temporary media files are removed automatically after delivery when auto-delete is on, which is the default.", "Your data is not sold or used for advertising.", "Basic operational statistics, such as download count and platform, may be stored."];
 const faq = [["Does it work with private accounts?", "No. Reelkeep handles public links only. Private, deleted, region-restricted or login-required content is reported without trying to get around access controls."], ["Why do some Instagram Stories need extra setup?", "Instagram often requires a signed-in session for Stories, even on public accounts. The bot owner can configure an optional session for this. You never share your own credentials."], ["What happens if a download fails?", "Temporary errors are retried with a growing delay, and a second download engine takes over if needed. Permanent problems, such as private, deleted or oversized content, get a clear message straight away. No downloader can promise zero failures on third-party platforms."], ["How large can a file be?", "Up to 50 MB for direct Telegram delivery. Choose Balanced or Small quality for longer videos."], ["Which languages does the bot support?", "Arabic, which is the default, and English. Change it any time in /settings."], ["Can I see what I have downloaded?", "Yes. Use /history for recent downloads and /stats for your totals by platform."]];
