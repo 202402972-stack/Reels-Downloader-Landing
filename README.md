@@ -1,4 +1,4 @@
-# Reels D Bot — Landing Page
+# Reelkeep landing page
 
 Landing page for the **Reelkeep** Telegram bot, which downloads public TikTok and Instagram media and sends it back to a Telegram chat.
 
@@ -44,7 +44,6 @@ npm start -- -H 0.0.0.0 -p 3000
 - `app/` — Next.js App Router pages and global styles
 - `components/` — shared header, footer, buttons and UI components
 - `lib/site.ts` — bot and developer site configuration
-- `public/` — static assets
 
 ## Bot
 

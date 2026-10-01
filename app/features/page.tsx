@@ -13,18 +13,18 @@ const defaults = [["Direct upload size", "50 MB"], ["Links per batch", "5"], ["C
 export default function Features() {
   return <>
     <header className="wrap !pt-24 !pb-16"><Reveal><h1 className="h-page">Built to finish the download.</h1><p className="lead mt-6 max-w-[36rem]">What Reelkeep does, how it recovers when a platform misbehaves, and the limits it works within.</p></Reveal></header>
-    {sections.map(([heading, rows]) => <section key={heading} className="wrap !py-16 border-t border-rule grid grid-cols-12 gap-6">
+    {sections.map(([heading, rows]) => <section key={heading} className="border-t border-rule"><div className="wrap !py-16 grid grid-cols-12 gap-6">
       <Reveal className="col-span-12 lg:col-span-4"><h2 className="h-side">{heading}</h2></Reveal>
       <div className="col-span-12 lg:col-span-8">{rows.map(([title, description], index) => <Reveal key={title} delay={index * 80} className={`row${heading === "Safeguards" ? " grid grid-cols-2 gap-6" : ""}`}><div className="row-title">{title}</div><p>{description}</p></Reveal>)}</div>
-    </section>)}
-    <section className="wrap !py-16 border-t border-rule grid grid-cols-12 gap-6">
+    </div></section>)}
+    <section className="border-t border-rule"><div className="wrap !py-16 grid grid-cols-12 gap-6">
       <Reveal className="col-span-12 lg:col-span-4"><h2 className="h-side">Everything from the chat</h2></Reveal>
       <div className="col-span-12 lg:col-span-8">{commands.map(([command, description], index) => <Reveal key={command} delay={index * 80} className="row grid grid-cols-[8rem_1fr] gap-6"><div className="font-medium text-vermilion">{command}</div><p>{description}</p></Reveal>)}<p className="mt-6">The bot speaks Arabic and English. Switch language, and turn auto-delete on or off, in /settings.</p></div>
-    </section>
-    <section className="wrap !py-16 border-t border-rule grid grid-cols-12 gap-6">
+    </div></section>
+    <section className="border-t border-rule"><div className="wrap !py-16 grid grid-cols-12 gap-6">
       <Reveal className="col-span-12 lg:col-span-4"><h2 className="h-side">Defaults, stated plainly</h2></Reveal>
-      <div className="col-span-12 lg:col-span-8">{defaults.map(([label, value], index) => <Reveal key={label} delay={index * 80} className="row grid grid-cols-2 gap-6"><div className="text-ink">{label}</div><div className="value">{value}</div></Reveal>)}<p className="mt-6">These are default values and can be changed by the bot owner.</p></div>
-    </section>
+      <div className="col-span-12 lg:col-span-8">{defaults.map(([label, value], index) => <Reveal key={label} delay={index * 80} className="row grid grid-cols-2 gap-6 items-baseline"><div className="text-ink">{label}</div><div className="value">{value}</div></Reveal>)}<p className="mt-6">These are default values and can be changed by the bot owner.</p></div>
+    </div></section>
     <CtaRow/>
   </>;
 }

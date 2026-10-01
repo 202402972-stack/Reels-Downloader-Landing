@@ -1,12 +1,11 @@
 import Link from "next/link";
-import { DEV_NAME, DEV_URL, SITE_URL } from "@/lib/site";
+import { DEV_NAME, DEV_URL } from "@/lib/site";
 
 export default function Footer() {
   return <footer className="on-dark bg-ink py-16"><div className="wrap">
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div>
         <div className="wordmark">Reelkeep</div>
-        <a href={SITE_URL} target="_blank" rel="noopener noreferrer" className="mt-3 inline-block text-paper link link-on">reels-landing-zeta.vercel.app</a>
         <p className="mt-6 opacity-70">A Telegram media downloader for TikTok and Instagram.</p>
       </div>
       <div><div className="label">Pages</div><div className="mt-6 flex flex-col items-start gap-3">

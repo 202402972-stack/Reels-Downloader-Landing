@@ -12,15 +12,15 @@ const faq = [["Does it work with private accounts?", "No. Reelkeep handles publi
 export default function Privacy() {
   return <>
     <header className="wrap !pt-24 !pb-16"><Reveal><h1 className="h-page">Public links only. Files removed after delivery.</h1><p className="lead mt-6 max-w-[36rem]">What Reelkeep does with your links and your data, and answers to common questions.</p></Reveal></header>
-    <section className="wrap !py-16 border-t border-rule grid grid-cols-12 gap-6">
+    <section className="border-t border-rule"><div className="wrap !py-16 grid grid-cols-12 gap-6">
       <Reveal className="col-span-12 lg:col-span-4"><h2 className="h-side">How your data is handled</h2></Reveal>
       <div className="col-span-12 lg:col-span-8">{privacy.map((text, index) => <Reveal key={text} delay={index * 80} className="row text-ink">{text}</Reveal>)}</div>
-    </section>
-    <section className="wrap !py-20 border-t border-rule"><Reveal><p className="statement">Only download content you have the right to use.</p></Reveal></section>
-    <section className="wrap !py-16 border-t border-rule grid grid-cols-12 gap-6">
+    </div></section>
+    <section className="border-t border-rule"><div className="wrap !py-20"><Reveal><p className="statement">Only download content you have the right to use.</p></Reveal></div></section>
+    <section className="border-t border-rule"><div className="wrap !py-16 grid grid-cols-12 gap-6">
       <Reveal className="col-span-12 lg:col-span-4"><h2 className="h-side">Questions</h2></Reveal>
       <div className="col-span-12 lg:col-span-8">{faq.map(([question, answer], index) => <Reveal key={question} delay={index * 80}><details className={`border-b border-rule${index === 0 ? " border-t" : ""}`}><summary>{question}</summary><p>{answer}</p></details></Reveal>)}</div>
-    </section>
+    </div></section>
     <CtaRow/>
   </>;
 }

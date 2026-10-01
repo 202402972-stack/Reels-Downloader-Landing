@@ -18,14 +18,14 @@ export default function Home() {
   return <>
     <section className="wrap !py-24 md:!py-36 grid grid-cols-12 gap-6">
       <div className="col-span-12 lg:col-span-7">
-        <h1 className="h-hero"><span className="line"><span style={{ animationDelay: "100ms" }}>Public TikTok and Instagram media,</span></span><span className="line"><span style={{ animationDelay: "250ms" }}>delivered to your chat.</span></span></h1>
+        <h1 className="h-hero"><span className="line"><span style={{ animationDelay: "100ms" }}>Public TikTok and Instagram media,</span></span>{" "}<span className="line"><span style={{ animationDelay: "250ms" }}>delivered to your chat.</span></span></h1>
         <p className="lead mt-8 max-w-[34rem]">Send a link, or up to five at once. Choose a quality. Reelkeep downloads the video, photo or album and sends it back to you in Telegram, then removes the files.</p>
         <div className="mt-10 flex flex-wrap gap-8 items-center"><Button>Start using the bot</Button><a href="#how" className="link">See how it works</a></div>
       </div>
       <div className="col-span-12 lg:col-span-5 mt-16 lg:mt-0 flex justify-end"><ChatMock/></div>
     </section>
     <div className="border-y border-rule"><div className="wrap grid grid-cols-2 md:grid-cols-4 text-[.9375rem] text-ink">
-      {["TikTok videos", "Instagram Reels, Stories and posts", "Up to 5 links per batch", "Files removed after delivery"].map((text, index) => <Reveal key={text} delay={index * 80} className={`py-6 px-4${index > 0 ? " md:border-l md:border-rule" : ""}`}>{text}</Reveal>)}
+      {["TikTok videos", "Instagram Reels, Stories and posts", "Up to 5 links per batch", "Files removed after delivery"].map((text, index) => <Reveal key={text} delay={index * 80} className={`py-6 pr-4 ${index === 0 ? "pl-0" : index === 2 ? "pl-0 md:pl-4" : "pl-4"}${index > 0 ? " md:border-l md:border-rule" : ""}`}>{text}</Reveal>)}
     </div></div>
     <section id="how" className="bg-paper py-20 md:py-32"><div className="wrap grid grid-cols-12 gap-6">
       <Reveal className="col-span-12 lg:col-span-4"><h2 className="h-section">How it works</h2></Reveal>
